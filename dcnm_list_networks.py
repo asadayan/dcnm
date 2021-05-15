@@ -32,9 +32,9 @@ for item in output:
     netcfg = json.loads(item['networkTemplateConfig'])
     all_network_list.append((item['vrf'],item['networkStatus']))
     if item['networkStatus'].lower() == 'deployed':
-        all_deployed_network.append(f"Vrf:{item['vrf']} Network: {item['displayName']}    IPv4: {netcfg['gatewayIpAddress']}     IPv6: {netcfg['gatewayIpV6Address']}    Vlan: {netcfg['vlanId']}")
+        all_deployed_network.append(f"Vrf:{item['vrf']:<16} Network: {item['displayName']:<24}    IPv4: {netcfg['gatewayIpAddress']:<15}     IPv6: {netcfg['gatewayIpV6Address']:<3}    Vlan: {netcfg['vlanId']}")
     if item['networkStatus'].lower() != 'deployed':
-        all_undeployed_network.append(f"Vrf:{item['vrf']} Network: {item['displayName']}    IPv4: {netcfg['gatewayIpAddress']}    IPv6: {netcfg['gatewayIpV6Address']}    Vlan: {netcfg['vlanId']}")
+        all_undeployed_network.append(f"Vrf:{item['vrf']:<16} Network: {item['displayName']:<24}    IPv4: {netcfg['gatewayIpAddress']:<15}    IPv6: {netcfg['gatewayIpV6Address']:<3}    Vlan: {netcfg['vlanId']}")
 
 all_deployed_network.sort()
 all_undeployed_network.sort()
