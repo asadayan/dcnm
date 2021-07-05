@@ -48,6 +48,10 @@ elif apply_type.lower() != all or apply_type.lower() != 'undeployed':
         if i[0].lower()[:3] == apply_type.lower():
             vrf_list.append(i[0])
 
+vrf_list.sort()
+#print(vrf_list)
+
+
 network_dict = network_template.network
 network_dict['fabric'] = fabricName
 network_dict['networkTemplateConfig']['suppressArp'] = suppressArp
